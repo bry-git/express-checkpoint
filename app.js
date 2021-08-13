@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -39,7 +39,7 @@ app.get('/movies', (req, res) => {
         .catch(err =>
             res.status(404).json({
                 message:
-                    'The data you are looking for could not be found. Please try again'
+                    'No Movie with that Title was found'
             })
         );
     }
@@ -69,7 +69,7 @@ app.get('/movies/:id', (req, res) => {
         .catch(err =>
             res.status(404).json({
                 message:
-                    'The data you are looking for could not be found. Please try again'
+                    'Movie ID not found'
             })
         );
 });
@@ -88,6 +88,15 @@ app.post('/movies', (req, res) => {
         .then(() => res.send(200))
         .catch(err =>
             res.status(500))
+})
+
+app.delete('/movies/:id', (req, res) => {
+    console.log(req.body)
+    knex('movies')
+        .where({id: req.params.id})
+        .del()
+        .then(() => res.send(200))
+        .catch((err) => res.status(500))
 })
 
 
