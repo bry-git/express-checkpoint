@@ -1,0 +1,27 @@
+{
+  "name": "express-checkpoint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bry-git/express-checkpoint.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bry-git/express-checkpoint/issues"
+  },
+  "homepage": "https://github.com/bry-git/express-checkpoint#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.21",
+    "nodemon": "^2.0.12",
+    "pg": "^8.7.1",
+    "pg-promise": "^10.11.0"
+  }
+}
