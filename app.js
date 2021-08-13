@@ -90,6 +90,7 @@ app.post('/movies', (req, res) => {
             res.status(500))
 })
 
+
 app.delete('/movies/:id', (req, res) => {
     console.log(req.body)
     knex('movies')
