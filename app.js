@@ -75,8 +75,16 @@ app.get('/movies/:id', (req, res) => {
 });
 
 app.post('/movies', (req, res) => {
+    console.log(req.body)
     knex('movies')
-        .insert(req.body)
+        .insert({
+            id: req.body.id,
+            title: req.body.title,
+            genre: req.body.genre,
+            release_date: req.body.release_date,
+            created_at: req.body.created_at,
+            updated_at: req.body.updated_at
+        })
         .then(() => res.send(200))
         .catch(err =>
             res.status(500))
